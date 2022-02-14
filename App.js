@@ -34,6 +34,8 @@ export default function App() {
       <Icon name="done" height="40" width="40" fill="#f0f" />
       edit
       <Icon name="edit" height="40" width="40" fill="#f0f" />
+      edit_location
+      <Icon name="edit_location" height="40" width="40" fill="#f0f" />
       event
       <Icon name="event" height="40" width="40" fill="#f0f" />
       expand_more
@@ -62,6 +64,8 @@ export default function App() {
       <Icon name="phone" height="40" width="40" fill="#f0f" />
       phone_round
       <Icon name="phone_round" height="40" width="40" fill="#f0f" />
+      remove_circle_outline
+      <Icon name="remove_circle_outline" height="40" width="40" fill="#f0f" />
       request_quote
       <Icon name="request_quote" height="40" width="40" fill="#f0f" />
       request_quote_outline
