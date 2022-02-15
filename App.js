@@ -77,6 +77,8 @@ export default function App() {
         width="40"
         fill="#f0f"
       />
+      request_quote_round
+      <Icon name="request_quote_round" height="40" width="40" fill="#f0f" />
       rotate_left
       <Icon name="rotate_left" height="40" width="40" fill="#f0f" />
       shopping_cart
