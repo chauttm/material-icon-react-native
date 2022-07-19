@@ -3,18 +3,64 @@ import React, { Fragment } from "react";
 import { StyleSheet, Text, View, Button } from "react-native";
 import Icon from "./MaterialIcons";
 import DemoIcon from "./DemoIcons";
-import { generateColorTheme } from "./ColorUtils";
+import {
+  generateColorTheme,
+  generateMUTheme,
+  generateTinyColorTheme,
+} from "./ColorUtils";
 
 export default function App() {
+  //generateMUTheme("#001A50", BrimColors.Secondary);
+  console.log(generateTinyColorTheme("#001A50", BrimColors.Secondary));
   return (
     <View
       style={{
-        flexDirection: "row",
+        flexDirection: "column",
       }}
     >
-      {Prototype(generateColorTheme(BrimColors.Primary, BrimColors.Secondary))}
-      {Prototype(generateColorTheme("#009CFF", BrimColors.Secondary))}
-      {Prototype(generateColorTheme("#c20000", BrimColors.Secondary))}
+      <View
+        style={{
+          flexDirection: "row",
+        }}
+      >
+        {Prototype(
+          generateColorTheme(BrimColors.Primary, BrimColors.Secondary)
+        )}
+        {Prototype(
+          generateTinyColorTheme(BrimColors.Primary, BrimColors.Secondary)
+        )}
+        {Prototype(generateMUTheme(BrimColors.Primary, BrimColors.Secondary))}
+      </View>
+
+      <View
+        style={{
+          flexDirection: "row",
+        }}
+      >
+        {Prototype(generateColorTheme("#c20000", BrimColors.Secondary))}
+        {Prototype(generateTinyColorTheme("#c20000", BrimColors.Secondary))}
+        {Prototype(generateMUTheme("#c20000", BrimColors.Secondary))}
+      </View>
+
+      <View
+        style={{
+          flexDirection: "row",
+        }}
+      >
+        {Prototype(generateColorTheme("#06BD6D", BrimColors.Secondary))}
+        {Prototype(generateTinyColorTheme("#06BD6D", BrimColors.Secondary))}
+        {Prototype(generateMUTheme("#06BD6D", BrimColors.Secondary))}
+      </View>
+
+      <View
+        style={{
+          flexDirection: "row",
+        }}
+      >
+        {Prototype(generateColorTheme("#104473", "#06BD6D"))}
+        {Prototype(generateTinyColorTheme("#104473", "#06BD6D"))}
+        {Prototype(generateMUTheme("#104473", "#06BD6D"))}
+      </View>
     </View>
   );
   //{Prototype(BrimColors)}
@@ -58,7 +104,7 @@ const SignIn = (theme) => {
           name="keyboard_backspace"
           height="20"
           width="20"
-          fill={theme.NeutralLighter}
+          fill={theme.White}
         />
 
         <Text
@@ -144,28 +190,28 @@ const ContactUs = (theme) => {
           alignItems: "center",
         }}
       >
-        <Icon name="close" height="20" width="20" fill={theme.NeutralLighter} />
+        <Icon name="close" height="20" width="20" fill={theme.White} />
 
         <Text
           style={{
-            color: theme.NeutralLighter,
+            color: theme.White,
             margin: 5,
             fontWeight: "bold",
           }}
         >
-          Contact Us N-Liter
+          Contact Us White
         </Text>
       </View>
 
       <Text
         style={{
-          color: theme.NeutralLighter,
+          color: theme.PrimaryLighter,
           fontSize: 15,
           margin: 5,
           fontWeight: "bold",
         }}
       >
-        OREGON IN N-LITER
+        OREGON IN P-LITER
       </Text>
       {DividerOnDark(theme)}
       {Address(theme)}
@@ -173,7 +219,7 @@ const ContactUs = (theme) => {
 
       <Text
         style={{
-          color: theme.NeutralLighter,
+          color: theme.PrimaryLighter,
           fontSize: 15,
           margin: 5,
           fontWeight: "bold",
@@ -206,11 +252,11 @@ const Address = (theme) => {
 
       <Text
         style={{
-          color: theme.PrimaryLighter,
+          color: theme.NeutralLighter,
           margin: 5,
         }}
       >
-        Address in PrimaryLighter
+        Address in NeutralLighter
       </Text>
     </View>
   );
@@ -237,13 +283,13 @@ function MainScreen(theme) {
       >
         <Text
           style={{
-            color: theme.NeutralLighter,
+            color: theme.White,
             fontSize: 20,
             margin: 5,
             fontWeight: "bold",
           }}
         >
-          Page in NeutralLighter
+          Page in White
         </Text>
         <Text
           style={{
@@ -392,7 +438,7 @@ const Bubble = (theme) => {
           flexDirection: "row",
         }}
       >
-        <Text style={{ color: theme.Neutral }}>Email Neutral:</Text>
+        <Text style={{ color: theme.NeutralDark }}>NeutralDark:</Text>
         <Text style={{ color: theme.Blue }}> text@in.Blue.com</Text>
       </View>
 
@@ -415,7 +461,7 @@ const Bubble = (theme) => {
       >
         <Icon name="add_a_photo" height="20" width="20" fill={Primary} />
 
-        <Text style={{ color: theme.Neutral }}>Upload in Neutral</Text>
+        <Text style={{ color: theme.NeutralDark }}>Upload in NeutralDark</Text>
       </View>
     </View>
   );
