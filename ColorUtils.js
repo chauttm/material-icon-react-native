@@ -1,9 +1,6 @@
-import materialColorPicker from "@aytek/material-color-picker";
-//var materialColorPicker = require("@aytek/material-color-picker");
+import tinycolor from "./tinycolor"; //https://github.com/bgrins/TinyColor
 
-import tinycolor from "./tinycolor";
-
-export const generateTinyColorTheme = (primaryColor, secondaryColor) => {
+export const generateColorTheme = (primaryColor, secondaryColor) => {
   var color = tinycolor("red");
   console.log(color);
   var colors = tinycolor(primaryColor).monochromatic();
@@ -12,7 +9,7 @@ export const generateTinyColorTheme = (primaryColor, secondaryColor) => {
     return t.toHexString();
   });
 
-  const dark = tinycolor(primaryColor).darken().darken().toString();
+  const dark = tinycolor(primaryColor).darken(10).toString();
   const darkRGB = toRGB(dark);
 
   return {
@@ -23,73 +20,13 @@ export const generateTinyColorTheme = (primaryColor, secondaryColor) => {
     Danger: "#FF0000",
     Primary: primaryColor,
     PrimaryLight: tinycolor(primaryColor).brighten().toString(),
-    PrimaryLighter: tinycolor(primaryColor)
-      .brighten()
-      .brighten()
-      .brighten()
-      .brighten()
-      .brighten()
-      .toString(),
+    PrimaryLighter: tinycolor(primaryColor).brighten(60).toString(),
 
     NeutralLighter: tint(darkRGB, 0.9),
     NeutralLight: tint(darkRGB, 0.7),
     Neutral: tint(darkRGB, 0.5),
     NeutralDark: tint(darkRGB, 0.2),
     NeutralDarker: dark,
-    Secondary: secondaryColor,
-  };
-};
-
-export const generateMUTheme = (primaryColor, secondaryColor) => {
-  const mc = materialColorPicker(primaryColor);
-  console.log(mc, mc["900"], mc["300"]);
-  console.log(primaryColor, secondaryColor);
-
-  const rgb = toRGB("#" + mc["900"]);
-  const dark = shade(rgb, 0.7);
-  const neutral = materialColorPicker(dark);
-
-  return {
-    Black: "#000000",
-    White: "#FFFFFF",
-    Blue: "#009CFF",
-    Warning: "#FF7A00",
-    Danger: "#FF0000",
-    Primary: "#" + mc["900"],
-    PrimaryLight: "#" + mc["700"],
-    PrimaryLighter: "#" + mc["200"],
-
-    NeutralLighter: "#" + neutral["50"],
-    NeutralLight: "#" + neutral["400"],
-    Neutral: "#" + neutral["500"],
-    NeutralDark: "#" + neutral["700"],
-    NeutralDarker: "#" + neutral["900"],
-    Secondary: secondaryColor,
-  };
-};
-
-export const generateColorTheme = (primaryColor, secondaryColor) => {
-  console.log(primaryColor, secondaryColor);
-  const rgb = toRGB(primaryColor);
-  const dark = shade(rgb, 0.7);
-  const darkRGB = toRGB(dark);
-  return {
-    Black: "#000000",
-    White: "#FFFFFF",
-    Blue: "#009CFF",
-    Warning: "#FF7A00",
-    Danger: "#FF0000",
-
-    Primary: primaryColor,
-    PrimaryLight: tint(rgb, 0.25),
-    PrimaryLighter: tint(rgb, 0.65),
-
-    NeutralLighter: tint(darkRGB, 0.9),
-    NeutralLight: tint(darkRGB, 0.7),
-    Neutral: tint(darkRGB, 0.5),
-    NeutralDark: tint(darkRGB, 0.2),
-    NeutralDarker: dark,
-
     Secondary: secondaryColor,
   };
 };
