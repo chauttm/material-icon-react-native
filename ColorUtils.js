@@ -25,7 +25,7 @@ export const generateColorTheme = (
   NeutralDark: NeutralDark,
   NeutralDarker: NeutralDarker,
 
-  Background: isDarkMode ? Black : NeutralLighter,
+  Background: isDarkMode ? NeutralDarker : NeutralLighter,
   DividerOnBackground: isDarkMode ? NeutralDark : NeutralLight,
   TextOnBackground: isDarkMode ? White : Black,
   TextOnBackgroundMinor: isDarkMode ? NeutralLight : NeutralDark,
